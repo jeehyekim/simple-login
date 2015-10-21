@@ -54,12 +54,12 @@ app.post('/login', function(req,res){
 	User.authenticate(req.body.email, req.body.password, function(err, user) {
 			console.log("Server js : " + user);
 			req.session.userId = user.id;
-			// if (user) {
+			if (user) {
 				// res.json(user);
-				res.redirect('profile');
-	// 		} else {
-	// 			console.log("user doesn't exist");
-	// 		}
+				res.redirect('/profile');
+			} else {
+				console.log("user doesn't exist");
+			}
 	});
 });
 
