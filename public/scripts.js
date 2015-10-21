@@ -18,7 +18,7 @@ $(document).ready(function() {
 	$('#signup-form').validate();
 
 	$('#login-form').on('submit', function(e) {
-		// e.preventDefault();
+		e.preventDefault();
 		console.log($('#login-form').serialize());
 		$.ajax ({
 			url: '/login',
@@ -27,7 +27,7 @@ $(document).ready(function() {
 		})
 		.done(function(data){
 			console.log("logged in");
-			// window.location.href="/profile";
+			window.location.href="/profile";
 		})
 		.fail(function(data){
 			console.log("failed to login");

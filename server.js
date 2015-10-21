@@ -48,15 +48,14 @@ app.post('/users', function(req,res){
 });
 
 
-
 // post route for log in page
 app.post('/login', function(req,res){
 	User.authenticate(req.body.email, req.body.password, function(err, user) {
 			console.log("Server js : " + user);
 			req.session.userId = user.id;
 			if (user) {
-				// res.json(user);
-				res.redirect('/profile');
+				res.json(user);
+				// res.redirect('/profile');
 			} else {
 				console.log("user doesn't exist");
 			}
